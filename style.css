@@ -1,0 +1,46 @@
+.button-container button {
+  background-color: #045aaa; /* Green background */
+  border: 1px solid rgb(0, 19, 128); /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.button-container button:hover {
+  background-color: #533e8e;
+}
+
+.button-container button:active {
+  background-color: #3f3e8e;
+}
+
+.button-container {
+  display: grid;
+  grid-row-gap: 10px;
+  position: absolute;
+  top: 20%;
+  width: 20%;
+  text-align: center;
+}
+
+.pics {
+  display: none;
+
+  width: 100%;
+  height: auto;
+
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pics-container {
+  display: block;
+  position: absolute;
+
+  top: 180px;
+  margin-left: 200px;
+  margin-right: 200px;
+  width: 50%;
+}

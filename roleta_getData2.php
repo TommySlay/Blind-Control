@@ -14,5 +14,3 @@
     
     echo $data['Stat'];
   }
-
-?>
