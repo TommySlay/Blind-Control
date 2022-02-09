@@ -40,9 +40,7 @@
   bottom: 350px;
 }
 
-body{
-  font-family: 'Times New Roman', Times, serif;
-  font-size: large;
+h1{
   position: relative;
   text-align: center;
 }

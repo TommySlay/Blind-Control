@@ -48,6 +48,59 @@ function getId() {
   xhr.send(params);
 }
 
+//--------------------WEATHER---------------------------
+
+document.getElementById('wbtn').addEventListener('click',loadWeather);
+
+function loadWeather(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=Zagreb&appid=71c6ea4857590089256b7d183c3c2c9a&lang=en&units=metric');
+
+  xhr.onload = function(){
+    if(this.status == 200){
+      var wData = JSON.parse(this.responseText);
+
+      console.log(wData);
+      var output = '';
+
+        output += 
+        '<div class="weather">' +
+
+        '<img src="http://openweathermap.org/img/wn/'+ wData.weather[0].icon +'@2x.png" width ="70" height = "70">' +
+
+        '<ul>' +
+        '<li>Temp: ' + parseInt(wData.main.temp) + '</li>' +
+        '</ul>'+
+
+        '<ul>' +
+        '<li>Feels like: ' + parseInt(wData.main.feels_like) + '</li>' +
+        '</ul>'+
+
+        '<ul>' +
+        '<li>Preassure: ' + parseInt(wData.main.pressure) + '</li>' +
+        '</ul>'+
+
+        '<ul>' +
+        '<li>Humidity: ' + parseInt(wData.main.humidity) + '</li>' +
+        '</ul>'+
+
+        '<ul>' +
+        '<li>Weather: ' + wData.weather[0].main + '</li>' +
+        '</ul>'+
+
+        '<ul>' +
+        '<li>Description: ' + wData.weather[0].description + '</li>' +
+        '</ul>'+
+
+        '</div>';
+
+      document.getElementById('weather').innerHTML = output;
+    }
+  }
+
+  xhr.send();
+}
+
 
 //-----------------------------------------------------
 
