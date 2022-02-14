@@ -1,3 +1,5 @@
+
+
 var btns = document.getElementsByClassName("button");
 var lastDbStat = '';
 
@@ -50,7 +52,6 @@ function getId() {
 
 //--------------------WEATHER---------------------------
 
-document.getElementById('wbtn').addEventListener('click',loadWeather);
 
 function loadWeather(){
   var xhr = new XMLHttpRequest();
@@ -104,4 +105,13 @@ function loadWeather(){
 
 //-----------------------------------------------------
 
+// Current position
 getId();
+
+//Load weather first time
+loadWeather();
+
+// load weather every x miliseconds
+setInterval(function(){
+  loadWeather()
+},10000)

@@ -1,46 +1,153 @@
-.button-container button {
-  background-color: #045aaa; /* Green background */
-  border: 1px solid rgb(0, 19, 128); /* Green border */
-  color: white; /* White text */
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  width: 50%; /* Set a width if needed */
-  display: block; /* Make the buttons appear below each other */
+body{
+  background-color: #c3cad1;
+  color: rgb(0, 0, 0);
+   margin: 0;
+ }
+
+ .web-container {
+   width: 100vw;
+   height: 100vh;
+
+   font-family: 'Roboto', sans-serif;
+   font-weight: bold;
+   font-size: 15px;
+
+   display: grid;
+   grid-template: 100px 1fr 75px / 300px 1025px 1fr;
+
+   gap: 10px;
+   padding: 10px;
+   box-sizing: border-box;
+ }
+
+ .header {
+   margin-top: 25px;
+   border-bottom: 5px solid black;
+   text-align: center;
+   font-size: 40px;
+   grid-column: 1 / 4 ;
+ }
+
+ .button-container{
+   padding: 20px;
+
+   grid-row: 2 / 3;
+   text-align: center;
+   justify-content: center;
+ }
+
+ .button{
+   text-align: center;
+   justify-content: center;
+   background-color: initial;
+   background-image: linear-gradient(#8a8a8a, #586c81);
+   border-radius: 8px;
+   border-width: 0;
+   box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+   box-sizing: border-box;
+   color: #fff;
+   cursor: pointer;
+   font-size: 20px;
+   height: 52px;
+   width: 125px;
+   outline: none;
+   overflow: hidden;
+   text-decoration: none;
+   transform: translate3d(0, 0, 0);
+   transition: all 150ms;
+   margin: 5px;
+
+ }
+
+.button:hover {
+ box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+ opacity: .85;
 }
 
-.button-container button:hover {
-  background-color: #533e8e;
+
+ .pics {
+   justify-content: center;
+   display: none;
+   height: auto;
+   width: 1000px;
+   margin-top: 0%;
+     
+ }
+
+
+ .footer{
+   padding: 10px;
+   border-top: 5px solid black;
+
+   grid-column: 1 / 4 ;
+ }
+
+.pics-container{
+ text-align: center;
 }
 
-.button-container button:active {
-  background-color: #3f3e8e;
+.weather-container{
+ text-align: left;
+ font-size: 35px;
+
+
 }
 
-.button-container {
-  display: grid;
-  grid-row-gap: 10px;
-  position: relative;
-  top: 50px;
-  bottom: 50%;
-  width: 20%;
-  text-align: center;
+.button-box{
+ margin-top: 40px;
+
 }
 
-.pics {
-  display: none;
-  width: 100%;
+.button-container-text{
+ font-size: 25px;
+
 }
 
-.pics-container {
-  display: block;
-  position: relative;
+.pics-container-text{
+ padding-top: 100px;
+ font-size: 25px;
 
-  margin-left: 340px;
-  width: 50%;
-  bottom: 350px;
 }
 
-h1{
-  position: relative;
-  text-align: center;
+/*CSS ZA TOGGLE BUTTON*/
+
+
+
+.toggle {
+ position : relative;
+ display : inline-block;
+ width : 50px;
+ height : 20px;
+ background-color: red;
+ border-radius: 30px;
+ border: 2px solid rgb(0, 0, 0);
+}
+     
+/* After slide changes */
+.toggle:after {
+ content: '';
+ position: absolute;
+ width: 18px;
+ height: 18px;
+ border-radius: 50%;
+ background-color: rgb(0, 0, 0);
+ top: 1px; 
+ left: 1px;
+ transition:  all 0.5s;
+}
+     
+     
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+ left : 30px; 
+}
+     
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+ background-color: green;
+}
+     
+/* Checkbox vanished */
+.checkbox { 
+ display : none;
 }
