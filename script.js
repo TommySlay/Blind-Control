@@ -115,3 +115,45 @@ loadWeather();
 setInterval(function(){
   loadWeather()
 },10000)
+
+var checkbox = document.querySelector("input[name=checkbox]");
+
+// ----------------------
+
+// gumb za connect/disconnect
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+
+    var conn = '';
+
+    conn += 
+
+    '<div class="connection">' +
+
+    '<p>' + 'CONNECTED' + '</p>'+
+
+    '</div>';
+
+    document.getElementById('connection').innerHTML = conn;
+
+
+
+  } else {
+    console.log("Checkbox is not checked..");
+
+    var conn = '';
+
+    conn += 
+
+    '<div class="connection">' +
+
+    '<p>' + 'DISCONNECTED' + '</p>'+
+
+    '</div>';
+
+    document.getElementById('connection').innerHTML = conn;
+
+  }
+});
