@@ -13,7 +13,6 @@
     $q = $pdo->prepare($sql);
     $q->execute(array($Stat));
     Database::disconnect();
-    header("Location: domzajezabrijo.php");
   }
 
   // SLANJE PODATKA O MODU RADA U DATA BAZU
@@ -27,7 +26,6 @@
     $q = $pdo->prepare($sql);
     $q->execute(array($Mode));
     Database::disconnect();
-    header("Location: domzajezabrijo.php");
   }
 
   // SLANJE PODATKA O VREMENU U DATA BAZU
@@ -41,7 +39,6 @@
     $q = $pdo->prepare($sql);
     $q->execute(array($Weather));
     Database::disconnect();
-    header("Location: domzajezabrijo.php");
   }
   
 ?>
