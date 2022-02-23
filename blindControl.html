@@ -9,6 +9,7 @@
     <title>Blind Control</title>
     <link rel="icon" type="imige/x-icon" href="favicon.ico">
   </head>
+
   <body>
     <div class = "web-container" >
 
@@ -38,20 +39,20 @@
 
         <div class="pics-container">
 
-          <div class="pics-container-text">
-            POSITION X
+          <div id="pics-text" class="picstext">
           </div>
 
-            <img class="pics" id="img0" src="pics/0.png" />
-            <img class="pics" id="img1" src="pics/1.png" />
-            <img class="pics" id="img2" src="pics/2.png" />
-            <img class="pics" id="img3" src="pics/3.png" />
-            <img class="pics" id="img4" src="pics/4.png" />
-            <img class="pics" id="img5" src="pics/5.png" />
-            <img class="pics" id="img6" src="pics/6.png" />
-            <img class="pics" id="img7" src="pics/7.png" />
-            <img class="pics" id="img8" src="pics/8.png" />
-          </div>
+          <img class="pics" id="img0" src="pics/0.png" />
+          <img class="pics" id="img1" src="pics/1.png" />
+          <img class="pics" id="img2" src="pics/2.png" />
+          <img class="pics" id="img3" src="pics/3.png" />
+          <img class="pics" id="img4" src="pics/4.png" />
+          <img class="pics" id="img5" src="pics/5.png" />
+          <img class="pics" id="img6" src="pics/6.png" />
+          <img class="pics" id="img7" src="pics/7.png" />
+          <img class="pics" id="img8" src="pics/8.png" />
+
+        </div>
 
         <div class="weather-container">
         <div  id="weather"></div>
@@ -60,9 +61,15 @@
         <div class="footer">
 
           <input type="checkbox" id="switch" class="checkbox" name="checkbox" />
-          <label for="switch" class="toggle"></label>
+            <label for="switch" class="toggle"></label>
+            <div id="connection" class="conn"></div>
+            <br></br>
+          </input>
 
-        <div id="connection"></div>
+          <input type="checkbox" id="mode" class="checkbox" name="mode" />
+            <label for="mode" class="toggle"></label>
+            <div id="mod" class="mod"></div>
+          </input>
 
         </div>
 

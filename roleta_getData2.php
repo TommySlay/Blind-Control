@@ -12,5 +12,5 @@
     $data = $q->fetch(PDO::FETCH_ASSOC);
     Database::disconnect();
     
-    echo $data['Stat'];
+    echo $data['Stat'] . $data['Mode'] . $data['Weather'];
   }
