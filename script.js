@@ -1,21 +1,21 @@
-// DEFINIRANJE POCETNIH VARIJABLI
+// DEFINE VARIABLES
 
-var isConneted = false; // Pocetna vrijednost switcha konekcije
-var auto = false; // Pocetna vrijednost switcha moda rada
+var isConneted = false; // SET INIT CONN TO DB TO FALSE
+var auto = false; // SET INIT MODE TO FALSE
 
-// FUNKCIJA ZA SLANJE PODATKA POLOZAJA SA TIPKALA U DATA BAZU
+// POST DATA DO DB FUNCTION
 
 function postStat(e) {
-  e.preventDefault(); // Bez refresh-anja stranice
+  e.preventDefault(); //NO REFRESH
   if(isConneted == true){
 
   var val = e.target.value;
   console.log("Position set to: " + val);
 
-  var params = "Stat=" + val; // Postavljanje vrijednosti za upisivanje u DB
+  var params = "Stat=" + val;
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "roleta_updateData1.php", true); // Otvaranje PHP-a za spjanje na DB
+  xhr.open("POST", "roleta_updateData1.php", true); 
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.send(params);
@@ -24,20 +24,20 @@ function postStat(e) {
 }
 }
 
-var lastDbStat = ''; // Pocetna vrijednost data baze (vec je popunjena)
+var lastDbStat = '';
 
-// FUNKCIJA ZA DOBIVANJE VRIJEDNOSTI IZ DATA BAZE
+// GET POSITION FROM DB
 
 
 function getId() {
 
-  var params = "ID=" + 1; // Odredivanje retka za dobivanje vrijednosti (dobiva se samo "Stat")
+  var params = "ID=" + 1;
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "roleta_getData2.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  xhr.onload = function(){ // Funkcija koja dobivenu vrijednost sprema u varijablu i prikazuje
+  xhr.onload = function(){
     var lastDbStat = xhr.response;
     
     
@@ -50,35 +50,32 @@ function getId() {
   xhr.send(params);
 }
 
-// FUNKCIJA ZA ODREDIVANJE BROJA SLIKE ZA PRIKAZ
+// SHOW PICTURES ON WEBSITE
 
 function showImg(el) {
   for (let index = 0; index < 9; index++) {
-    document.getElementById("img" + index).style.display = "none";  // Prikaz bez slike
+    document.getElementById("img" + index).style.display = "none"; 
   }
 
-  document.getElementById("img" + el).style.display = "block"; // Prikaz slike sa pripadajucim brojem
-
+  document.getElementById("img" + el).style.display = "block";
   var posOutpu = '';
 
   posOutpu += 
 
-  //'<div>' + 
 
     '<p> POSITION ' + el + '</p>';
 
-  //'</div>';
 
   document.getElementById('pics-text').innerHTML = posOutpu;
 
 }
 
-// FUKCIJA ZA DOBIVANJE VRIJEDNOSTI O VREMENU SA JSON WEB STRANICE
+// GET WEATHER FROM WEATHER API "open world weather"
 
 
 function loadWeather(){
   var xhr = new XMLHttpRequest();
-  // Dohvacanje stranice ovisno o gradu i API-u
+
   xhr.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=Zagreb&appid=71c6ea4857590089256b7d183c3c2c9a&lang=en&units=metric');
 
   xhr.onload = function(){
@@ -86,46 +83,46 @@ function loadWeather(){
       var wData = JSON.parse(this.responseText);
 
       console.log("weather updated!")
-      var output = ''; // Postavljanje varijable za podatke sa JSON stranice
+      var output = ''; 
 
         output += 
 
           '<div class="weather">' +
-          // Dohvacanje ikone
+          // picture
           '<img src="http://openweathermap.org/img/wn/'+ wData.weather[0].icon +'@2x.png" width ="70" height = "70">' +
-          // Dohvacanje temperature
+          // temperatur
           '<ul>' +
           '<li>Temp: ' + parseInt(wData.main.temp + "°C") + ' °C</li>' +
           '</ul>'+
-          // Dohvacanje osjetne temperature
+          // real feel
           '<ul>' +
           '<li>Feels like: ' + parseInt(wData.main.feels_like) + ' °C</li>' +
           '</ul>'+
-          // Dohvacanje tlaka zraka
+          // preassure
           '<ul>' +
           '<li>Preassure: ' + parseInt(wData.main.pressure) +  ' hPa</li>' +
           '</ul>'+
-          // Dohvacanje vlaznosti zraka
+          // humidity
           '<ul>' +
           '<li>Humidity: ' + parseInt(wData.main.humidity) + ' %</li>' +
           '</ul>'+
-          // Dohvacanje vremena (koristi se za AUTO mod rada)
+          // current weather
           '<ul>' +
           '<li>Weather: ' + wData.weather[0].main + '</li>' +
           '</ul>'+
-          // Dohvacanje detaljnijeg vremena
+          // description
           '<ul>' +
           '<li>Description: ' + wData.weather[0].description + '</li>' +
           '</ul>'+
 
         '</div>';
 
-      document.getElementById('weather').innerHTML = output; // Slanje podatka u html za prikaz
+      document.getElementById('weather').innerHTML = output; 
 
-      var weather = wData.weather[0].description; // Spremanje podatka  vremenu u varijablu
+      var weather = wData.weather[0].description; 
       console.log("Weather description" + weather);
     
-      var param = "Weather=" + weather; // Pretvaranje u varijablu za slanje u DB
+      var param = "Weather=" + weather; 
     
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "roleta_updateData1.php", true);
@@ -138,42 +135,42 @@ function loadWeather(){
   xhr.send();
 }
 
-// DEFINIRANJE POCETNIH VRIJEDNOSTI PREKLOPKE KONEKCIJE
+// STARTING VALUES OF SWITCH "DISCONNECT"
 
-var checkbox = document.querySelector("input[id=switch]"); // Odredivanje preklopke konekcije
-let conn='<div class="mod"><p>DISCONNECTED</p></div>'; // Postavljanje pocetnog teksta "DISCONNECT"
-var btns = document.getElementsByClassName("button"); // Dobivanje vrijednosti za tipkala
-document.getElementById('connection').innerHTML = conn; // Slanje podatka u html za prikaz
+var checkbox = document.querySelector("input[id=switch]"); 
+let conn='<div class="mod"><p>DISCONNECTED</p></div>'; 
+var btns = document.getElementsByClassName("button"); 
+document.getElementById('connection').innerHTML = conn; 
 
-// DOBIVANJE PODATKA O POLOZAJU PREKLOPKE KONEKCIJE I SLANJE PODATKA U DATA BAZU I HTML
+// CONNECT OR DISCONNECT FROM DB
 
 
-checkbox.addEventListener('change', function() { // Budenje na pomjeni stanja
+checkbox.addEventListener('change', function() { 
 
-  if (this.checked) { // Uvjet "ukljuceno"
-    console.log("Connected to DB!"); // Informacija u konzoli da je ukljuceno
+  if (this.checked) { 
+    console.log("Connected to DB!"); 
 
-    isConneted = true; // Pretvaranje varijable u "true" 
-    for (var i = 0; i < btns.length; i++) { // Petlja za mijenjanje vrijednosti u data bazi s obzirom na pritisnuto tipkalo
+    isConneted = true; 
+    for (var i = 0; i < btns.length; i++) { 
       btns[i].addEventListener("click", postStat);
     }
 
-    var conn = ''; // Pocetna varijabla za html ispis konekcije
+    var conn = ''; 
 
     conn += 
 
     '<div class="connection">' +
 
-    '<p>CONNECTED</p>' +  // Informacija za ispis "CONNECTED"
+    '<p>CONNECTED</p>' +  
 
     '</div>';
 
-    document.getElementById('connection').innerHTML = conn; // Slanje informacije u html
+    document.getElementById('connection').innerHTML = conn; 
     
 
 
 
-  } else { // Uvjet "nije ukljuceno"
+  } else { 
     console.log("Not connected to DB!");
     isConneted = false;
 
@@ -190,14 +187,13 @@ checkbox.addEventListener('change', function() { // Budenje na pomjeni stanja
 
 
 
-// DEFINIRANJE POCETNIH VRIJEDNOSTI PREKLOPKE MODA RADA
+// START POSITION OF AUTO/MANUAL MODE
 
-var mode = document.querySelector("input[id=mode]"); // Odredivanje preklopke moda rada
-let mod='<div class="mod"><p>MANUAL</p></div>'; // Postavljanje pocetnog teksta "MANUAL"
-document.getElementById('mod').innerHTML = mod; // Slanje informacije u html za prikaz
+var mode = document.querySelector("input[id=mode]"); 
+let mod='<div class="mod"><p>MANUAL</p></div>'; 
+document.getElementById('mod').innerHTML = mod; 
 
-// DOBIVANJE PODATKA O POLOZAJU PREKLOPKE KONEKCIJE I SLANJE PODATKA U DATA BAZU I HTML
-
+// SET MODE MANUAL/AUTO
 mode.addEventListener('change', function(e) {
   if (this.checked) {
     console.log("SET TO AUTO!");
@@ -206,7 +202,7 @@ mode.addEventListener('change', function(e) {
 
     e.preventDefault();
   
-    var val = 1; // Za "AUTO" mod rada je odredena vrijednost 1 koja se sprema u data bazu
+    var val = 1; 
   
     var param = "Mode=" + val;
   
@@ -231,8 +227,7 @@ mode.addEventListener('change', function(e) {
 
     e.preventDefault();
   
-    var val = 2; // Za "MANUAL" mod rada je odredena vrijednost 2 koja se sprema u data bazu
-  
+    var val = 2; 
     var param = "Mode=" + val;
   
     var xhr = new XMLHttpRequest();
@@ -250,9 +245,9 @@ mode.addEventListener('change', function(e) {
   }
 });
 
-// FUNKCIJA KOJA POSTAVLJA POCETNU VRIJEDNOST U DATA BAZI KAO "MANUAL"
+// STARTING VALUE IS MANUAL
 
-function pocetno(){
+function starting(){
     
   var val = 2;
   console.log("SET TO MANUAL!");
@@ -267,21 +262,22 @@ function pocetno(){
   xhr.send(param);
 }
 
-// POZIV FUNKCIJE POCETNO
-pocetno();
+// WHEN PAGE IS REFREASHED OR OPENED FOR THE FIRST TIME
 
-// POZIV FUNKCIJE ZA DOBIVANJE VRIJEDNOSTI POLOZAJA IZ DATA BAZE
+starting();
+
+
 getId();
 
-// POZIV FUNKCIJE ZA DOBIVANJE PODATAKA VREMENA I SLANJE U DATA BAZU
+
 loadWeather();
 
-// ODREDIVANJE VREMENA POZIVA FUNKCIJE (SVAKIH 10 SEKUNDI)
+
 setInterval(function(){
   getId()
 },10000)
 
-// ODREDIVANJE VREMENA POZIVA FUNKCIJE (SVAKIH 10 SEKUNDI)
+
 setInterval(function(){
   loadWeather()
 },10000)
