@@ -1,206 +1,206 @@
 body{
-  background-color: #c3cad1;
-  color: rgb(0, 0, 0);
-   margin: 0;
- }
-
- .web-container {
-   width: 100vw;
-   height: 100vh;
-
-   font-family: 'Roboto', sans-serif;
-   font-weight: bold;
-   font-size: 15px;
-
-   display: grid;
-   grid-template: 100px 1fr 75px / 300px 1025px 1fr;
-
-   gap: 10px;
-   padding: 10px;
-   box-sizing: border-box;
- }
-
- .header {
-   margin-top: 25px;
-   border-bottom: 5px solid black;
+    background-color: #c3cad1;
+    color: rgb(0, 0, 0);
+     margin: 0;
+   }
+  
+   .web-container {
+     width: 100vw;
+     height: 100vh;
+  
+     font-family: 'Roboto', sans-serif;
+     font-weight: bold;
+     font-size: 15px;
+  
+     display: grid;
+     grid-template: 100px 1fr 75px / 300px 1025px 1fr;
+  
+     gap: 10px;
+     padding: 10px;
+     box-sizing: border-box;
+   }
+  
+   .header {
+     margin-top: 25px;
+     border-bottom: 5px solid black;
+     text-align: center;
+     font-size: 40px;
+     grid-column: 1 / 4 ;
+   }
+  
+   .button-container{
+     padding: 20px;
+  
+     grid-row: 2 / 3;
+     text-align: center;
+     justify-content: center;
+   }
+  
+   .button{
+     display: block;
+     text-align: center;
+     justify-content: center;
+     background-color: initial;
+     background-image: linear-gradient(#8a8a8a, #586c81);
+     border-radius: 8px;
+     border-width: 0;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+     box-sizing: border-box;
+     color: #fff;
+     cursor: pointer;
+     font-size: 20px;
+     height: 52px;
+     width: 125px;
+     outline: none;
+     overflow: hidden;
+     text-decoration: none;
+     transform: translate3d(0, 0, 0);
+     transition: all 150ms;
+     margin: 5px;
+  
+   }
+  
+  .button:hover {
+   box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+   opacity: .85;
+  }
+  
+  
+   .pics {
+     justify-content: center;
+     display: none;
+     height: auto;
+     width: 1000px;
+     margin-top: 0%;
+       
+   }
+  
+  
+   .footer{
+     padding: 10px;
+     border-top: 5px solid black;
+  
+     grid-column: 1 / 4 ;
+   }
+  
+  .pics-container{
    text-align: center;
-   font-size: 40px;
-   grid-column: 1 / 4 ;
- }
-
- .button-container{
-   padding: 20px;
-
-   grid-row: 2 / 3;
-   text-align: center;
-   justify-content: center;
- }
-
- .button{
-   display: block;
-   text-align: center;
-   justify-content: center;
-   background-color: initial;
-   background-image: linear-gradient(#8a8a8a, #586c81);
-   border-radius: 8px;
-   border-width: 0;
-   box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
-   box-sizing: border-box;
-   color: #fff;
-   cursor: pointer;
-   font-size: 20px;
-   height: 52px;
-   width: 125px;
-   outline: none;
-   overflow: hidden;
-   text-decoration: none;
-   transform: translate3d(0, 0, 0);
-   transition: all 150ms;
-   margin: 5px;
-
- }
-
-.button:hover {
- box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
- opacity: .85;
-}
-
-
- .pics {
-   justify-content: center;
-   display: none;
-   height: auto;
-   width: 1000px;
-   margin-top: 0%;
-     
- }
-
-
- .footer{
-   padding: 10px;
-   border-top: 5px solid black;
-
-   grid-column: 1 / 4 ;
- }
-
-.pics-container{
- text-align: center;
-}
-
-.weather-container{
- text-align: left;
- font-size: 35px;
-
-
-}
-
-.button-box{
- margin-top: 40px;
-
-}
-
-.button-container-text{
- font-size: 25px;
-
-}
-
-.picstext{
- padding-top: 50px;
- font-size: 25px;
-
-}
-
-/*CSS ZA TOGGLE BUTTON*/
-
-
-
-.toggle {
- position : relative;
- display : inline-block;
- width : 50px;
- height : 20px;
- background-color: red;
- border-radius: 30px;
- border: 2px solid rgb(0, 0, 0);
-}
-     
-/* After slide changes */
-.toggle:after {
- content: '';
- position: absolute;
- width: 18px;
- height: 18px;
- border-radius: 50%;
- background-color: rgb(0, 0, 0);
- top: 1px; 
- left: 1px;
- transition:  all 0.5s;
-}
-     
-     
-/* Checkbox checked effect */
-.checkbox:checked + .toggle::after {
- left : 30px; 
-}
-     
-/* Checkbox checked toggle label bg color */
-.checkbox:checked + .toggle {
- background-color: green;
-}
-     
-/* Checkbox vanished */
-.checkbox { 
- display : none;
-}
-
-
-/*CSS ZA TOGGLE BUTTON2*/
-
-
-
-.toggle {
-  position : relative;
-  display : inline-block;
-  width : 50px;
-  height : 20px;
-  background-color: red;
-  border-radius: 30px;
-  border: 2px solid rgb(0, 0, 0);
- }
-      
- /* After slide changes */
- .toggle:after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: rgb(0, 0, 0);
-  top: 1px; 
-  left: 1px;
-  transition:  all 0.5s;
- }
-      
-      
- /* Checkbox checked effect */
- .mode:checked + .toggle::after {
-  left : 30px; 
- }
-      
- /* Checkbox checked toggle label bg color */
- .mode:checked + .toggle {
-  background-color: green;
- }
-      
- /* Checkbox vanished */
- .mode { 
-  display : none;
- }
-
- .conn{
-   display: inline-block;
- }
-
- .mod{
-   display: inline-block;
- }
+  }
+  
+  .weather-container{
+   text-align: left;
+   font-size: 35px;
+  
+  
+  }
+  
+  .button-box{
+   margin-top: 40px;
+  
+  }
+  
+  .button-container-text{
+   font-size: 25px;
+  
+  }
+  
+  .picstext{
+   padding-top: 50px;
+   font-size: 25px;
+  
+  }
+  
+  /*CSS ZA TOGGLE BUTTON*/
+  
+  
+  
+  .toggle {
+   position : relative;
+   display : inline-block;
+   width : 50px;
+   height : 20px;
+   background-color: red;
+   border-radius: 30px;
+   border: 2px solid rgb(0, 0, 0);
+  }
+       
+  /* After slide changes */
+  .toggle:after {
+   content: '';
+   position: absolute;
+   width: 18px;
+   height: 18px;
+   border-radius: 50%;
+   background-color: rgb(0, 0, 0);
+   top: 1px; 
+   left: 1px;
+   transition:  all 0.5s;
+  }
+       
+       
+  /* Checkbox checked effect */
+  .checkbox:checked + .toggle::after {
+   left : 30px; 
+  }
+       
+  /* Checkbox checked toggle label bg color */
+  .checkbox:checked + .toggle {
+   background-color: green;
+  }
+       
+  /* Checkbox vanished */
+  .checkbox { 
+   display : none;
+  }
+  
+  
+  /*CSS ZA TOGGLE BUTTON2*/
+  
+  
+  
+  .toggle {
+    position : relative;
+    display : inline-block;
+    width : 50px;
+    height : 20px;
+    background-color: red;
+    border-radius: 30px;
+    border: 2px solid rgb(0, 0, 0);
+   }
+        
+   /* After slide changes */
+   .toggle:after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    top: 1px; 
+    left: 1px;
+    transition:  all 0.5s;
+   }
+        
+        
+   /* Checkbox checked effect */
+   .mode:checked + .toggle::after {
+    left : 30px; 
+   }
+        
+   /* Checkbox checked toggle label bg color */
+   .mode:checked + .toggle {
+    background-color: green;
+   }
+        
+   /* Checkbox vanished */
+   .mode { 
+    display : none;
+   }
+  
+   .conn{
+     display: inline-block;
+   }
+  
+   .mod{
+     display: inline-block;
+   }

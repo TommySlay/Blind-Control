@@ -10,7 +10,7 @@ function postStat(e) {
   if(isConneted == true){
 
   var val = e.target.value;
-  console.log(val);
+  console.log("Position set to: " + val);
 
   var params = "Stat=" + val; // Postavljanje vrijednosti za upisivanje u DB
 
@@ -39,9 +39,12 @@ function getId() {
 
   xhr.onload = function(){ // Funkcija koja dobivenu vrijednost sprema u varijablu i prikazuje
     var lastDbStat = xhr.response;
-    console.log(lastDbStat);
+    
+    
+    console.log("String from DB: " + lastDbStat);
     showImg(lastDbStat[0]);
-    console.log(lastDbStat[0]);
+    
+    console.log("Position is set to: " + lastDbStat[0]);
   }
 
   xhr.send(params);
@@ -82,7 +85,6 @@ function loadWeather(){
     if(this.status == 200){
       var wData = JSON.parse(this.responseText);
 
-      //console.log(wData);
       console.log("weather updated!")
       var output = ''; // Postavljanje varijable za podatke sa JSON stranice
 
@@ -93,19 +95,19 @@ function loadWeather(){
           '<img src="http://openweathermap.org/img/wn/'+ wData.weather[0].icon +'@2x.png" width ="70" height = "70">' +
           // Dohvacanje temperature
           '<ul>' +
-          '<li>Temp: ' + parseInt(wData.main.temp) + '</li>' +
+          '<li>Temp: ' + parseInt(wData.main.temp + "°C") + ' °C</li>' +
           '</ul>'+
           // Dohvacanje osjetne temperature
           '<ul>' +
-          '<li>Feels like: ' + parseInt(wData.main.feels_like) + '</li>' +
+          '<li>Feels like: ' + parseInt(wData.main.feels_like) + ' °C</li>' +
           '</ul>'+
           // Dohvacanje tlaka zraka
           '<ul>' +
-          '<li>Preassure: ' + parseInt(wData.main.pressure) + '</li>' +
+          '<li>Preassure: ' + parseInt(wData.main.pressure) +  ' hPa</li>' +
           '</ul>'+
           // Dohvacanje vlaznosti zraka
           '<ul>' +
-          '<li>Humidity: ' + parseInt(wData.main.humidity) + '</li>' +
+          '<li>Humidity: ' + parseInt(wData.main.humidity) + ' %</li>' +
           '</ul>'+
           // Dohvacanje vremena (koristi se za AUTO mod rada)
           '<ul>' +
@@ -121,7 +123,7 @@ function loadWeather(){
       document.getElementById('weather').innerHTML = output; // Slanje podatka u html za prikaz
 
       var weather = wData.weather[0].description; // Spremanje podatka  vremenu u varijablu
-      console.log(weather);
+      console.log("Weather description" + weather);
     
       var param = "Weather=" + weather; // Pretvaranje u varijablu za slanje u DB
     
@@ -149,7 +151,7 @@ document.getElementById('connection').innerHTML = conn; // Slanje podatka u html
 checkbox.addEventListener('change', function() { // Budenje na pomjeni stanja
 
   if (this.checked) { // Uvjet "ukljuceno"
-    console.log("!!!Checkbox is checked.."); // Informacija u konzoli da je ukljuceno
+    console.log("Connected to DB!"); // Informacija u konzoli da je ukljuceno
 
     isConneted = true; // Pretvaranje varijable u "true" 
     for (var i = 0; i < btns.length; i++) { // Petlja za mijenjanje vrijednosti u data bazi s obzirom na pritisnuto tipkalo
@@ -172,7 +174,7 @@ checkbox.addEventListener('change', function() { // Budenje na pomjeni stanja
 
 
   } else { // Uvjet "nije ukljuceno"
-    console.log("Checkbox is not checked..");
+    console.log("Not connected to DB!");
     isConneted = false;
 
     var conn = '';
@@ -198,14 +200,13 @@ document.getElementById('mod').innerHTML = mod; // Slanje informacije u html za 
 
 mode.addEventListener('change', function(e) {
   if (this.checked) {
-    console.log("Checkbox is checked..");
+    console.log("SET TO AUTO!");
 
     var mod = '';
 
     e.preventDefault();
   
     var val = 1; // Za "AUTO" mod rada je odredena vrijednost 1 koja se sprema u data bazu
-    console.log(val);
   
     var param = "Mode=" + val;
   
@@ -224,14 +225,13 @@ mode.addEventListener('change', function(e) {
 
 
   } else {
-    console.log("Checkbox is not checked..");
+    console.log("SET TO MANUAL!");
 
     var mod = '';
 
     e.preventDefault();
   
     var val = 2; // Za "MANUAL" mod rada je odredena vrijednost 2 koja se sprema u data bazu
-    console.log(val);
   
     var param = "Mode=" + val;
   
@@ -255,7 +255,7 @@ mode.addEventListener('change', function(e) {
 function pocetno(){
     
   var val = 2;
-  console.log(val);
+  console.log("SET TO MANUAL!");
 
   var param = "Mode=" + val;
 
