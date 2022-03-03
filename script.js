@@ -15,7 +15,7 @@ function postStat(e) {
   var params = "Stat=" + val; // Postavljanje vrijednosti za upisivanje u DB
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "prijava.php", true); // Otvaranje PHP-a za spjanje na DB
+  xhr.open("POST", "roleta_updateData1.php", true); // Otvaranje PHP-a za spjanje na DB
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.send(params);
@@ -128,7 +128,7 @@ function loadWeather(){
       var param = "Weather=" + weather; // Pretvaranje u varijablu za slanje u DB
     
       var xhr = new XMLHttpRequest();
-      xhr.open("POST", "prijava.php", true);
+      xhr.open("POST", "roleta_updateData1.php", true);
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       
       xhr.send(param);
@@ -211,7 +211,7 @@ mode.addEventListener('change', function(e) {
     var param = "Mode=" + val;
   
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "prijava.php", true);
+    xhr.open("POST", "roleta_updateData1.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
     xhr.send(param);
@@ -236,7 +236,7 @@ mode.addEventListener('change', function(e) {
     var param = "Mode=" + val;
   
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "prijava.php", true);
+    xhr.open("POST", "roleta_updateData1.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       
     xhr.send(param);
@@ -260,7 +260,7 @@ function pocetno(){
   var param = "Mode=" + val;
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "prijava.php", true);
+  xhr.open("POST", "roleta_updateData1.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
 

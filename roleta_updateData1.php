@@ -11,7 +11,7 @@ if(isset($_POST['Stat'])){
    $query = "UPDATE statusled_2 SET Stat = '$Stat' WHERE id = 1 ";
 
    if(mysqli_query($conn,$query)){
-      echo 'USER ADDED....';
+      echo 'STAT UPDATED....';
 
    }else{
       echo 'ERROR: '.mysqlli_error($conn);
@@ -26,7 +26,7 @@ if(isset($_POST['Mode'])){
    $query = "UPDATE statusled_2 SET Mode = '$Mode' WHERE id = 1 ";
 
    if(mysqli_query($conn,$query)){
-      echo 'USER ADDED....';
+      echo 'MODE UPDATED....';
 
    }else{
       echo 'ERROR: '.mysqlli_error($conn);
@@ -41,7 +41,7 @@ if(isset($_POST['Weather'])){
    $query = "UPDATE statusled_2 SET Weather = '$Weather' WHERE id = 1 ";
 
    if(mysqli_query($conn,$query)){
-      echo 'USER ADDED....';
+      echo 'WEATHER UPDATED....';
 
    }else{
       echo 'ERROR: '.mysqlli_error($conn);
