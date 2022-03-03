@@ -1,7 +1,7 @@
 <?php
 
 //connect to database
-$conn = mysqli_connect('localhost','root','NEWPASSWORD','roleta_test2');
+$conn = mysqli_connect('localhost','root','','');
 
 if(isset($_POST['Stat'])){
    $Stat = mysqli_real_escape_string($conn, $_POST['Stat']);

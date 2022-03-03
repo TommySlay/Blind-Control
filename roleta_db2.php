@@ -1,9 +1,9 @@
 <?php
 class Database {
-		private static $dbName = 'roleta_test2' ;
+		private static $dbName = '' ;
 		private static $dbHost = 'localhost' ;
 		private static $dbUsername = 'root';
-		private static $dbUserPassword = 'NEWPASSWORD';
+		private static $dbUserPassword = '';
 		 
 		private static $cont  = null;
 		 
